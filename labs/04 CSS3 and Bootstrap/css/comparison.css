@@ -1,0 +1,14 @@
+caption {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+thead {
+    background-color: red;
+}
+
+.bold {
+    font-weight: bold;
+    text-transform: uppercase;
+}
