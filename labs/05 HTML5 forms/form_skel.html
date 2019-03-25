@@ -6,55 +6,58 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
+		<link href="form.css" type="text/css" rel="stylesheet" />
 	</head>
 	
 	<body>
+
+	<form><input type="text" name="company_name"  required /><input type="submit">
+	</form>
+
+	<form><input type="text" name="company_name"  oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')" required /><input type="submit">
+	</form>
+
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
 			<div>
-				Name: <input type="text" name="studentname"/>
+				Name: <input type="text" name="studentname" oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')" placeholder="your name" required/>
 			</div>
 			<div>
-				Student id: <input type="text" name="id"  />
+				Student id: <input type="text" name="id" pattern="\d{6}" placeholder="your student id must be 6-digits" />
 			</div>
 			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
+				Email: <input type="email" name="email" placeholder="your email address" pattern="([0-9A-Y])\@([0-9A-Y])\.([A-Y])" />
 			</div>
 			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
+				Assignment: <input type="text" name="assigment" placeholder="your assigment" />
 			</div>
 
 			<div>
-				Code:
-				<!--
-				Make an input named "code" which is a text area to put student's code into.
-				-->
-				
+				Code: <input type="textarea" name="code" placeholder="enter code to be turnitin" />
 			</div>
 			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
+				<fieldset>
+					<legend>cheating option</legend>
+				<label>Cheat: <input type="checkbox" name="cheat" /></label>
+				<label>Didn't cheat: <input type="checkbox" name="cheat" /></label>
+				</fieldset>
 			</div>
 			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
+				<fieldset>
+					<legend>payment option</legend>
+				<label><input type="radio" name="card" value="visa" />Visa</label><br>
+				<label><input type="radio" name="card" value="mc" />Master</label><br>
+				<label><input type="radio" name="card" value="pp"/>Paypal</label>
+				</fieldset>
 			</div>
 			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
+				Score: <select type="text" name="score" pattern="[A-F])" />
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+				<option value="D">D</option>
+				<option value="F">F</option></select>
+
 			</div>
 			<input type="submit" />
 		</form>

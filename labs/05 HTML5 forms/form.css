@@ -1,0 +1,19 @@
+input[type="text"] {
+    color : red;
+    font-style: italic;
+    text-align: center;
+    background-color: #cccccc;
+}
+input[type="textarea"] {
+    color : red;
+    font-style: italic;
+    text-align: center;
+    background-color: #cccccc;
+}
+input[type="submit"] {
+    font-weight : bold;
+    color : green;
+}
+fieldset {
+    background-color: #E0F2BE;
+}
