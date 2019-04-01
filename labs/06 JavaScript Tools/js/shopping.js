@@ -10,10 +10,14 @@ function calculate() {
 	var total;
     
     // Get references to the form values:
-    var quantity = document.getElementById('quantity').value;
-    var price = document.getElementById('price').value;
-    var tax = document.getElementById('tax').value;
-    var discount = document.getElementById('discount').value;
+    var quantity = parseInt(document.getElementById('quantity').value);
+    var price = parseFloat(document.getElementById('price').value);
+    var tax = parseFloat(document.getElementById('tax').value);
+    var discount = parseFloat(document.getElementById('discount').value);
+	var shipping = parseFloat(document.getElementById('shipping').value);
+    if(quantity > 100) {
+    	discount *= 2;
+	}
 
 	// Add validation here later!
 	
@@ -26,7 +30,7 @@ function calculate() {
 	tax = tax + 1;
 	
 	// Factor in the tax:
-	total = total * tax;
+	total = total * tax + shipping;
 	console.log("total after tax: " + total);
 		
 	// Factor in the discount:

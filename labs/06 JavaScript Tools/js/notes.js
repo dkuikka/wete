@@ -1,14 +1,40 @@
-
+"use strict";
 var notes = new Array();
 
+function saveList() {
+	localStorage.notes = JSON.stringify(notes);
+}
+
+function loadList() {
+	console.log('loadList');
+	if (localStorage.notes) {
+		notes = JSON.parse(localStorage.notes);
+		displayList();
+	}
+}
+
 function addItem() {
-	textbox = document.getElementById('item');
+	var addnew = true;
+	var textbox = document.getElementById('item');
 	var itemText = textbox.value;
 	textbox.value = '';
 	textbox.focus();
-	var newItem = {title: itemText, quantity: 1};
-	notes.push(newItem);
-	displayList();
+	notes.forEach(function(entry) {
+		if (itemText == entry.title){
+			entry.quantity ++;
+			addnew = false;
+			saveList();
+			loadList();
+		}
+		console.log(entry.title);
+	});
+	if (addnew) {
+		var newItem = {title: itemText, quantity: 1};
+		notes.push(newItem);
+		saveList();
+		loadList();
+	}
+
 }
 
 function displayList() {
@@ -26,8 +52,10 @@ function displayList() {
 
 function deleteIndex(i) {
 	notes.splice(i, 1);
-	displayList();
+	saveList();
+	loadList();
 }
 
-button = document.getElementById('add');
+var button = document.getElementById('add');
 button.onclick = addItem;
+loadList();

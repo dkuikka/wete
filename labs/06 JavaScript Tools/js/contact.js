@@ -12,6 +12,7 @@ function process() {
     // Get form references:
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+    var name = document.getElementById('name');
     // Validate the email address:
     if (!email || !email.value 
     || (email.value.length < 6) 
@@ -37,6 +38,15 @@ function process() {
         okay = true;
 
         alert('Comment was trimmed under ' + maxLength + ' characters');
+    }
+    // Validate name
+    if (!name || !name.value
+        || (name.value.length < 3)
+        || (name.value.length > 100)
+        || (name.value.indexOf(' ') == -1)
+        || (name.value.indexOf(' ', name.value.indexOf(' ') +1 ) == -1)) {
+        okay = false;
+        alert('Please enter a correct name!');
     }
         
     // Normally you would "return okay;" here to submit/block the form submission
