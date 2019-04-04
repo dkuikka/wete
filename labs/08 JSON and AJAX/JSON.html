@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <title> JSON </title>
   <script>
+    window.onload = function() {
+      //var newP = document.createElement("P");
+      //document.getElementById("mystring").appendChild(newP);
+      var newNode = document.createTextNode(myString);
+      document.getElementById("mystring").appendChild(newNode);
+      var newNode = document.createTextNode(employeeName);
+      document.getElementById("myobject").appendChild(newNode);
+    };
 
 var fidoString = '{ "name": "Fido", "breed": "Mixed", "weight": 38 }';
 var fido = JSON.parse(fidoString);
@@ -18,8 +26,24 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+var employee = {
+  name: { first: "Colin",
+    second: "Stephen" },
+  title: "Assistant Lecturer"
+}
+myString = JSON.stringify(employee);
+
+myObject = JSON.parse(myString);
+var employeeName = myObject.name.first;
+
+
+
+
+
   </script>
 </head>
 <body>
+  <div id="mystring"></div>
+  <div id="myobject"></div>
 </body>
 </html>

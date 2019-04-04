@@ -10,6 +10,8 @@
 		map.onmousemove = showCoords;
 		var mydiv = document.getElementById("mydiv");
 		mydiv.onclick = addtext;
+		var list = document.getElementById("list");
+        list.onclick = addList;
 	}
 	
 	function showCoords(eventObj) {
@@ -28,11 +30,24 @@
 			alert("Looks like you have an old browser!");
 		}
 	}
+
+	function addList() {
+	    console.log("click");
+        var newUl = document.createElement("UL");
+        document.getElementById("list").appendChild(newUl);
+        for (let i = 0; i<5; i++) {
+            var newLi = document.createElement("LI");
+            newUl.appendChild(newLi);
+            newLi.innerHTML = "text for list";
+        }
+    }
+
   </script>
 </head>
 <body>
 	<img id="map" src="data/map.jpg">
 	<p id="coords">Move mouse over map to find coordinates...</p>
 	<div id="mydiv" style="border:1px solid red">I am a DIV! Click me.</div>
+    <div id="list">I am a LIST! Click me.</div>
 </body>
 </html>
