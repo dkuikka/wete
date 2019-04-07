@@ -1,5 +1,11 @@
 var notes = [];
 
+var inputti = document.querySelector('#editPage input');
+var textarea = document.querySelector('#editPage textarea	');
+
+inputti.addEventListener("change", updateNote);
+textarea.addEventListener("change", updateNote);
+
 /*
  * displays the 'add' screen if this has been bookmarked by user
  */
@@ -13,6 +19,9 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+	notes.push({title, note});
+	var title = "";
+	var note = "";
 };
 
 /*
@@ -20,10 +29,15 @@ document.querySelector('#addPage button').onclick = function() {
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('editPage').style.display = 'none';
+	document.getElementById('addPage').style.display = 'inline-block';
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('addPage').style.display = 'none';
+	document.getElementById('editPage').style.display = 'inline-block';
+	loadList();
 };
 
 
