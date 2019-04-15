@@ -9,6 +9,10 @@ function showHint(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+               //var response = xmlhttp.responseText;
+                //var responseJSON = JSON.parse(response);
+                //document.getElementById("txtHint").innerHTML = responseJSON;
                 document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
             }
         };

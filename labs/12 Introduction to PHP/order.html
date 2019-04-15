@@ -4,6 +4,9 @@
 <script language="javascript" type="text/javascript">
 /*global ActiveXObject*/
 //Browser Support Code
+
+document.querySelector('#button button').onclick = ajaxFunction();
+
 function ajaxFunction(){
 	var ajaxRequest;  // The variable that makes Ajax possible!
 	
@@ -40,6 +43,8 @@ function ajaxFunction(){
 <form name='myForm'>
 Name: <input type='text' onChange="ajaxFunction();" name='username' /> <br />
 Time: <input type='text' name='time' />
+    <button id="button">Click Me!</button>
+    <p id="showNum"></p>
 
 </form>
 </body>
